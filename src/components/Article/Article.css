@@ -1,0 +1,61 @@
+.article {
+    padding: 10px 13px 16px 14px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    background-color: none;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.article:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.article-container {
+    grid-row-start: 1;
+    grid-column-start: 1;
+     
+
+}
+
+.image-container {
+    width: 100%;
+    height: 42%;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 4px;
+    
+}
+
+.articleTitle {
+    color: #444;
+    transition: all 0.5s ease;
+}
+
+.articleTitle:hover {
+    color: #2980b9;
+}
+
+.card-meta p {
+    color: #3498db;
+    text-transform: capitalize;
+}
+
+.card-meta span {
+    font-size: 0.9rem;
+    color: #bbb;
+    margin-left: 6px;
+}
+
+.articleAuthor a {
+    font-weight: bold;
+    color: #3498db;
+    text-decoration: none;
+}
