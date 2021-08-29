@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Article } from '../Article/Article';
 import './ArticleList.css';
 

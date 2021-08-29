@@ -1,0 +1,28 @@
+.no-comments-available {
+    color: red;
+    font-size: 15px;
+}
+
+.loader {
+    margin-top: 10px;
+    border: 10px solid #dad5d5;
+    border-top: 10px solid #3498db;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}
+
+.failed-to-load-comments img {
+    height: 14px;
+}
+
+.failed-to-load-comments span {
+    color: red;
+}
+

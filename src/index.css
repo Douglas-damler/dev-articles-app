@@ -1,6 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap");
+
+* {
+    margin: 0;
+}
+
 .main {
     display: flex;
     flex-direction: column;
     font-family: "Oxygen", sans-serif;
+    margin-top: 40px;
 }
+
+.featured-title {
+    margin-bottom: 40px;
+}
+
+
