@@ -4,6 +4,7 @@
 .comment-container img {
     height: 30px;
     margin-right: 8px;
+    border-radius: 50%;
 }
 
 .comment {
@@ -20,6 +21,7 @@
 
 .comment h4 {
     font-size: 14px;
+    margin-bottom: 12px;
 }
 
 .timeago {

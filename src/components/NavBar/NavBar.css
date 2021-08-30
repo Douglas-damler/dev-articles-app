@@ -79,6 +79,16 @@ a:hover {
 	font: inherit
 }
 
+.userProfilePicture {
+	height: 30px;
+	margin: 10px 10px 0px 20px;
+	border-radius: 50%;
+}
+
+.userProfilePicture:hover {
+	cursor: pointer;
+}
+
 @media only screen and (max-width:720px) {
 	nav ul {
 		width: 100%!important
@@ -104,6 +114,10 @@ a:hover {
 		width: 150px;
         padding: 5px;
         margin: 0;
+	}
+
+	.userProfilePicture {
+		margin-top: 0px;
 	}
 }
  

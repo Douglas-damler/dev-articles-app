@@ -50,6 +50,7 @@
     font-size: 16px;
 }
 
+
 @media only screen and (max-width:720px) {
     .article-information {
         width: 95% !important
@@ -76,6 +77,13 @@
     margin-top: 40px;
     display: flex;
     
+}
+
+.author-information-container img {
+    height: 40px;
+    position: absolute;
+    border-radius: 50%;
+    top: -15px;
 }
 
 .author-information-container h5 {

@@ -34,7 +34,7 @@ export const AllComments = ({id}) => {
                     ''
                 )
             ): (
-                <p className="failed-to-load-comments"><img src={refresh}/> <span>Cannot load comments at this time</span></p>
+                <p className="failed-to-load-comments"><img src={refresh} alt=""/> <span>Cannot load comments at this time</span></p>
             )
             }
         </div>

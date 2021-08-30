@@ -12,6 +12,7 @@ export const login = createAsyncThunk(
 export const register = createAsyncThunk(
     'userSession/register',
 
+    // The below aysncoronous function is for test. The actual code will be added later after creating the endpoints;
     async(details) => {
         //const { name, email, password } = details;
         var axios = require("axios").default;
@@ -33,6 +34,28 @@ export const register = createAsyncThunk(
     }
 );
 
+export const addUserFollowing = createAsyncThunk(
+    'userSession/addFollowing',
+    async () => {
+        var axios = require("axios").default;
+        var options = {
+            method: 'GET',
+            url: 'https://free-news.p.rapidapi.com/v1/search',
+            params: {q: 'Elon Musk', lang: 'en'},
+            headers: {
+             'x-rapidapi-key': '979d05050emshf7dd085f9e872dbp1d41b3jsn130311b62321',
+             'x-rapidapi-host': 'free-news.p.rapidapi.com'  
+            }
+        };
+ 
+        const response = await axios.request(options);
+        const data = response.data;
+        const articles = data.articles;
+        console.log(articles);
+        return ''; 
+    }
+)
+
 const userSessionSlice = createSlice({
     name: 'userSession',
     initialState: {
@@ -43,7 +66,8 @@ const userSessionSlice = createSlice({
         hasFailedToLogin: false,
         isRegistering: false,
         registrationSucess: false,
-        hasFailedToRegister: false
+        hasFailedToRegister: false,
+        userFollowingIsSuccessful: false
     },
 
     reducers: {},
@@ -93,6 +117,18 @@ const userSessionSlice = createSlice({
             state.isRegistering = false;
             state.hasFailedToRegister = true;
             state.registrationSucess = false;
+        },
+
+        [addUserFollowing.pending]: (state, action) => {
+            state.userFollowingIsSuccessful = true;
+        },
+
+        [addUserFollowing.fulfilled]: (state, action) => {
+            state.userFollowingIsSuccessful = true;
+        },
+
+        [addUserFollowing.rejected]: (state, action) => {
+            state.userFollowingIsSuccessful = false;
         }
     }
 });

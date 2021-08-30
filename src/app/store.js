@@ -4,6 +4,7 @@ import allCommentsReducer from "../components/features/allCommentsSlice";
 import myArticlesReducer from "../components/features/myArticlesSlice";
 import searchTermReducer from "../components/features/searchTermSlice";
 import userSessionReducer from "../components/features/userSessionSlice";
+import newArticleReducer from '../components/features/NewArticlSlice';
 
 export default configureStore({
     reducer: {
@@ -11,6 +12,7 @@ export default configureStore({
         comments: allCommentsReducer,
         myArticles: myArticlesReducer,
         searchTerm: searchTermReducer,
-        userSession: userSessionReducer
+        userSession: userSessionReducer,
+        newArticle: newArticleReducer
     }
 });

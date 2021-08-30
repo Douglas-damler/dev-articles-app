@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment } from '@fortawesome/free-regular-svg-icons';
@@ -10,15 +10,24 @@ import { faPython } from '@fortawesome/free-brands-svg-icons';
 import { faJava } from '@fortawesome/free-brands-svg-icons';
 import { faPhp } from '@fortawesome/free-brands-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import './ArticleInformation.css'
+import './ArticleInformation.css';
 import { NewCommentForm } from '../../newCommentForm/NewCommentForm'
 import { AllComments } from '../../../containers/allComments/allComments';
+import profile from '../../../images/profile.jpg'; //This is a test image the actual image will be imported from the database
+import { addUserFollowing } from '../../features/userSessionSlice';
 
 export const ArticleInformation = () => {
     const articles = useSelector((state) => state.allArticles.articles);
+    const addFollowingIsSuccessful = useSelector((state) => state.userSession.userFollowingIsSuccessful);
     const comments = useSelector((state) => state.comments.comments);
     const totalComments = comments.length;
     const { id } = useParams();
+    const dispatch = useDispatch();
+
+    const handleFollowButtonClick = () => {
+        dispatch(addUserFollowing());
+    }
+
     const findArticleById = (articles) => {
         for (let index = 0; index < articles.length; index++) {
             if (articles[index]._id === id) {
@@ -61,21 +70,25 @@ export const ArticleInformation = () => {
         </div>
         {article ? (
             <div className="author-information-container">
-            <div className="author-information">
-             <h5 className="name">Douglas Kathurima</h5>
-             <button>Follow</button>
-             <p className="more-information">
-                 My name is Douglas Kathurima a software engineer at the University of Eastern Africa, Baraton
-             </p>
-             <h5>Location</h5>
-             <p>Meru, Kenya</p>
-             <h5>Education</h5>
-             <p>University of Eastern Africa</p>
-             <h5>Work</h5>
-             <p>Software Engineer</p>
-             <h5>Joined</h5>
-             <p>12 August 2020</p>
-            </div>
+                <div className="author-information">
+                    <img src={profile} alt=""/>
+                    <h5 className="name">{article.author}</h5>
+                    <button onClick={handleFollowButtonClick}>
+                        {addFollowingIsSuccessful ? 'Following': 'Follow'}
+                        </button>
+                    <p className="more-information">
+                        My name is Douglas Kathurima a software engineer at the University of Eastern Africa, Baraton
+                    </p>
+
+                    <h5>Location</h5>
+                    <p>Meru, Kenya</p>
+                    <h5>Education</h5>
+                    <p>University of Eastern Africa</p>
+                    <h5>Work</h5>
+                    <p>Software Engineer</p>
+                    <h5>Joined</h5>
+                    <p>12 August 2020</p>
+                </div>
          </div>
         ): ('')}
 

@@ -9,6 +9,7 @@ import { SignIn } from '../components/pages/SignIn/SignIn';
 import { SignUp } from '../components/pages/SignUp/SignUp';
 import { ArticleInformation} from '../components/pages/ArticleInformation/ArticleInformation';
 import { Hero } from '../components/Hero/Hero';
+import { NewArticlePreview } from '../components/NewArticlePreview/NewArticlePreview';
 
 const App = () => {
   return (
@@ -20,6 +21,10 @@ const App = () => {
       <Route exact path="/articles/:id">
         <ArticleInformation />
       </Route>
+
+      <Route exact path="/new-article/preview">
+        <NewArticlePreview />
+      </Route>
       
       <Route exact path="/">
         <Hero />
@@ -30,7 +35,7 @@ const App = () => {
         <About />
       </Route>
 
-      <Route path="/new-article">
+      <Route exact path="/new-article">
         <NewArticle />
       </Route>
 
@@ -38,11 +43,11 @@ const App = () => {
         <ContactUs />
       </Route>
 
-      <Route to="/sign-up">
+      <Route path="/sign-up">
         <SignUp />
       </Route>
 
-      <Route to="sign-in">
+      <Route path="sign-in">
         <SignIn />
       </Route>
 
