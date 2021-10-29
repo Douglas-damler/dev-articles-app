@@ -8,6 +8,7 @@ export const AllArticles = () => {
     const dispatch = useDispatch();
     const articles = useSelector((state) => state.allArticles.articles);
     const searchTerm = useSelector((state) => state.searchTerm);
+    console.log(searchTerm);
     const isLoading = useSelector((state) => state.allArticles.isLoadingArticles);
     
     const filterData = (data, searchTerm) => {

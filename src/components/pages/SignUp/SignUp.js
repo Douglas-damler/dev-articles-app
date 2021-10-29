@@ -3,6 +3,8 @@ import './SignUp.css';
 import { useHistory } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import { register } from '../../features/userSessionSlice';
+import handwriting from '../../../images/handwriting.jpg';
+import cartoonwriting from '../../../images/Inkedcartoonwriting.jpg';
 
 export const SignUp = () => {
     const history = useHistory();
@@ -79,7 +81,7 @@ export const SignUp = () => {
                         placeholder="Your name"
                         type="text"
                         required="required"
-                        minLength="5"
+                        minLength="6"
                         maxLength="30"
                         value={name}
                         onChange={(e) => {setName(e.target.value); setNameError('')}}
@@ -88,7 +90,7 @@ export const SignUp = () => {
                 </div>
 
                 <div className="container">
-                    <label for="email">Your email address</label>
+                    <label htmlFor="email">Your email address</label>
                     <br />
                     <input 
                         placeholder="Your email address"
@@ -100,7 +102,7 @@ export const SignUp = () => {
                 </div>
 
                 <div className="container">
-                   <label for="password"> Your password</label>
+                   <label htmlFor="password"> Your password</label>
                    <br />
                    <input 
                         placeholder="Password"
@@ -114,7 +116,7 @@ export const SignUp = () => {
                 </div>
 
                 <div className="container">
-                    <label for="confirm password">Confirm password</label>
+                    <label htmlFor="confirm password">Confirm password</label>
                     <br />
                     <input 
                         placeholder="Repeat password"
@@ -139,6 +141,21 @@ export const SignUp = () => {
             </form>
 
             { hasFailedToRegister === true ? (<h4 className="registration-failed">Registration failed! Check your Internet connection and try again</h4>): (<></>)}
+
+            <div className="signup-page-arts-left">
+                <div className="left-image-container">
+                    <img src={cartoonwriting} alt="sign-up page arts"/>
+                    <p>Sign Up for <span>free</span> today</p>
+                </div>
+            </div>
+
+            <div className="signup-page-arts-right">
+                <div className="right-image-container">
+                    <img src={handwriting} alt="sign-up page arts" />
+                    <p><span>Sign Up </span>to begin writing your ideas <br /> today and get connected to <br /> the world of develpers</p>
+                </div>
+            </div>
+
         </div>
     )
 }

@@ -10,6 +10,7 @@ import { SignUp } from '../components/pages/SignUp/SignUp';
 import { ArticleInformation} from '../components/pages/ArticleInformation/ArticleInformation';
 import { Hero } from '../components/Hero/Hero';
 import { NewArticlePreview } from '../components/NewArticlePreview/NewArticlePreview';
+import { NotFound } from '../components/NotFound/NotFound';
 
 const App = () => {
   return (
@@ -49,6 +50,10 @@ const App = () => {
 
       <Route path="sign-in">
         <SignIn />
+      </Route>
+
+      <Route>
+        <NotFound />
       </Route>
 
       </Switch>

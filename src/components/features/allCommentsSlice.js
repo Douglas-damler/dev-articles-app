@@ -82,7 +82,7 @@ const allCommentsSlice = createSlice({
         [postNewComment.fulfilled]: (state, action) => {
             state.postNewCommentIsPending = false;
             state.postNewCommentHasFailed = false;
-            state.comments.push(action.payload);
+            state.comments.unshift(action.payload);
         },
         
         [postNewComment.rejected]: (state, action) => {

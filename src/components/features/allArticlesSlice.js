@@ -7,7 +7,7 @@ export const loadAllArticles = createAsyncThunk(
        var options = {
            method: 'GET',
            url: 'https://free-news.p.rapidapi.com/v1/search',
-           params: {q: 'Elon Musk', lang: 'en'},
+           params: {q: 'News', lang: 'en'},
            headers: {
             'x-rapidapi-key': '979d05050emshf7dd085f9e872dbp1d41b3jsn130311b62321',
             'x-rapidapi-host': 'free-news.p.rapidapi.com'  

@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useSelector } from 'react-redux';
-
-import style from './NewArticlePreview.css';
+import './NewArticlePreview.css';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import  light  from 'react-syntax-highlighter/dist/esm/styles/prism/vs';
-import { Light } from 'react-syntax-highlighter';
 
 
 export const NewArticlePreview = () => {

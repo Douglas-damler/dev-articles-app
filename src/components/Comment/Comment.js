@@ -14,7 +14,9 @@ const formatter = buildFormatter(frenchStrings);
 
 
 export const Comment = (props) => {
+
     const [click, setClick] = useState(false);
+
     return (
         <li>
             <div className="comment-container">
@@ -24,7 +26,7 @@ export const Comment = (props) => {
                     <p>{props.comment.comment}</p>
                 </div>
                 <ul className="comment-reply">
-                    <div className="like" onClick={() => {setClick(true)}} ><FontAwesomeIcon icon={faHeart} color={ click===true ? "red" : ""}  /> <span>Like</span></div>
+                    <div className="like" onClick={() => {setClick(true)}} ><FontAwesomeIcon icon={faHeart} color={ click ? "red" : ""}  /> <span>Like</span></div>
                     <div><FontAwesomeIcon icon={faComment} /> <span className="reply">Reply</span></div>
                     <div><FontAwesomeIcon icon={faThumbsDown}/> <span className="dislike">dislike</span></div>
                 </ul>

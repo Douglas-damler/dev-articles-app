@@ -1,4 +1,3 @@
-import React from 'react'
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const postArticle = createAsyncThunk(
@@ -27,12 +26,14 @@ export const postArticle = createAsyncThunk(
 const newArticleSlice = createSlice({
     name: "newArticle",
     initialState: {
-        article: {title: "me",
-        markdown:  "# This is like heavent to me ## I love Jesus ### Jesus is my personal saviour"
-        
-    },
+        article: {
+            title: "me",
+            markdown:  "# This is like heavent to me ## I love Jesus ### Jesus is my personal saviour"  
+        },
+
         isPostingNewArticle: false,
-        hasFailedToPostNewArticle: false
+        hasFailedToPostNewArticle: false,
+        hasPostedNewArticle: false
     },
 
     reducers: {},
@@ -41,12 +42,20 @@ const newArticleSlice = createSlice({
         [postArticle.pending]: (state, action) => {
             state.isPostingNewArticle = true;
             state.hasFailedToPostNewArticle = false;
+            state.hasPostedNewArticle = false;
         },
 
         [postArticle.fulfilled]: (state, action) => {
             state.isPostingNewArticle = false;
             state.hasFailedToPostNewArticle = false;
+            state.hasPostedNewArticle = true;
             state.article = action.payload;
+        },
+
+        [postArticle.rejected]: (state, action) => {
+            state.isPostingNewArticle = false;
+            state.hasFailedToPostNewArticle = true;
+            state.hasPostedNewArticle = false;
         }
     }
 });

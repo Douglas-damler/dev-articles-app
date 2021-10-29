@@ -2,35 +2,59 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearchTerm } from '../features/searchTermSlice';
 import './NavBar.css'
-import { NavLink, useRouteMatch } from 'react-router-dom';
-import profile from '../../images/profile.jpg';
+import { useRouteMatch } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SearchIcon from "@material-ui/icons/Search";
+import { NavLink } from 'react-router-dom';
+
+
+
 
 export const NavBar = () => {
+
     const dispatch = useDispatch();
     const {path} = useRouteMatch();
     console.log(path)
     const handleChange = (term) => {
         dispatch(setSearchTerm(term));
     }
-    const searchTerm = useSelector((state) => state.searchTerm);
+    const searchTerm = useSelector((state) => state.searchTerm)
     return (
-        <div>
-            <div className='content-wrapper'>
-            <div className='navmenu'>
+     <nav>
+     <div className="menu-icon">
+         <span><FontAwesomeIcon icon={["fas", "bars"]} /></span>
+     </div>
 
-                <span id='menu'><img alt="" src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC9JREFUeNpi/P//PwM1AQsQU9VEJgYqg8FvICgMGUeel0eTzWiyGU02Qz/ZAAQYAOPcBjEdYroKAAAAAElFTkSuQmCC'  /></span>
-                <nav id='navbar' >
-                    <ul className='navbar'>
-                        
-                        <li><NavLink to='/' title='Home'><span>Home</span></NavLink></li>
-                        <li><NavLink to='/new-article' title='Home'><span>New Article</span></NavLink></li>
-                        <li><NavLink to='/about' title='Home'><span>About</span></NavLink></li>
-                        <li><NavLink to='/contact-us' title='Home'><span>Contact Us</span></NavLink></li>
-                    </ul>
-                </nav>
-            </div>
-            </div>
-            <div/>
-        </div>
+     <div className="logo">
+          devArticles
+     </div>
+
+     <div className="nav-items">
+          <li><NavLink to='/' title='Home'><span>Home</span></NavLink></li>
+          <li><NavLink to='/new-article' title='Home'><span>New Article</span></NavLink></li>
+          <li><NavLink to='/about' title='Home'><span>About</span></NavLink></li>
+          <li><NavLink to='/contact-us' title='Home'><span>Contact Us</span></NavLink></li>
+     </div>
+
+     <div className="search-icon">
+          <span><SearchIcon /></span>
+     </div>
+
+     <div className="cancel-icon">
+          <span><FontAwesomeIcon icon={["fas", "times"]} /></span>
+     </div>
+
+     <form action="">
+          <input
+           onChange={(event) => {
+              handleChange(event.target.value)
+           }}
+           value={searchTerm}
+           type="search"
+           className="search-data" 
+           placeholder="Search" 
+           required />
+     </form>
+ </nav>
     )
 }

@@ -1,5 +1,6 @@
+
 .form-container {
-    margin-top: 60px;
+    margin-top: 30px;
     width: 70%;
     text-align: center;
 }
@@ -8,6 +9,10 @@
     text-align: left;
     padding: 20px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.new-article-form h3 {
+    margin: 0 0 20px 0;
 }
 
 .new-article-form h3 span {
@@ -22,23 +27,21 @@
     cursor: pointer;
 }
 
-.upload-image-button {
+.upload-cover-image-button {
     padding: 10px;
     background-color: transparent;
-    border: solid 1px gray;
-    border-radius: 4px;
-    margin: 20px 0px 20px 0px;
-    text-transform: capitalize;
+    border: solid rgb(185, 176, 176) 2px;
+    border-radius: 0.2rem;
 }
 
-.upload-image-button:hover {
-    border: solid 2px rgb(0, 183, 255);
+
+.upload-cover-image-button:hover {
     outline: none;
+    cursor: pointer;
 }
 
 .add-new-image {
     margin: 5px 10px 20px 10px;
-    background-color: rgb(228, 215, 215);
     padding: 8px 12px 12px 12px;
     border-radius: 4px;
     border: none;
@@ -52,7 +55,7 @@
     height: 50px;
     background-color: rgb(250, 246, 246);
     width: 90%;
-    margin: 0px 0px 30px 0;
+    margin: 20px 0px 30px 0;
 }
 
 .article-title-input::placeholder{
@@ -68,6 +71,17 @@
     width: 90%;
 }
 
+.copy-to-clipboard-link {
+    outline: none;
+    border: none;
+    margin: 0 10px 0px 10px;
+}
+
+.copy-to-clipboard-button {
+    background-color: green;
+    
+}
+
 .new-article-submit-button {
     margin: 20px 0px 0px 0px;
     padding: 10px 12px 12px 12px;
@@ -78,9 +92,102 @@
     border-radius: 4px;
 }
 
+.new-article-submit-button:hover {
+    cursor: pointer;
+    background-color: rgb(12, 48, 94);
+}
+
 .active {
     color: rgb(17, 95, 131);
 }
+
+.markdown-editor {
+    margin-top: 20px;
+}
+
+.user-hints {
+   position: absolute;
+   top: 150px; 
+   left: 68%;
+   width: 30%;
+   text-align: left;
+   padding: 10px;
+}
+
+.title-hint {
+    width: 90%;
+
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.lbl-toggle {
+    display: block;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 1.0rem;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 7px;
+    transition: all 0.25s ease-out;
+}
+
+.lbl-toggle:hover{
+    color: #7C5A0B;
+}
+
+.lbl-toggle::before { 
+    content: ' ';
+    display: inline-block;
+    border-top: 5px solid transparent;
+    border-bottom: 5px soid transparent;
+    border-left: 5px solid currentColor;
+    vertical-align: middle;
+    margin-right: .7rem;
+    transform: translateY(-2px);
+    transition: transform .2s ease-out;
+}
+
+.collapsible-content .content-inner {
+    border-bottom: 1px solid rgba(250, 224, 66, .45);
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    padding: .5rem 1rem;
+}
+
+.collapsible-content {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height .25s ease-in-out;
+}
+
+.toggle:checked + .lbl-toggle + .collapsible-content {
+    max-height: 100vh;
+}
+
+.toggle:checked + .lbl-toggle::before {
+    transform: rotate(450deg) translateX(-3px);
+}
+
+.toggle:checked + .lbl-toggle {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.content-inner ul li {
+    font-size: .9rem;
+    line-height: 1.5rem;
+    font-family: 'Roboto Mono', monospace;
+
+}
+
+
+
+
 
 @media screen and (max-width: 720px) {
     .form-container {

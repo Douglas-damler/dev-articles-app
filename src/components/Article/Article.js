@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Article.css';
 
 export const Article = (props) => {
+    
     return (
         <div className="article" key={props.article._id}>
             <div className="article-container">
