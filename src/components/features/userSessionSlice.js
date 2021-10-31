@@ -12,25 +12,17 @@ export const login = createAsyncThunk(
 export const register = createAsyncThunk(
     'userSession/register',
 
-    // The below aysncoronous function is for test. The actual code will be added later after creating the endpoints;
     async(details) => {
-        //const { name, email, password } = details;
-        var axios = require("axios").default;
-        var options = {
-            method: 'GET',
-            url: 'https://free-news.p.rapidapi.com/v1/search',
-            params: {q: 'Elon Musk', lang: 'en'},
+        console.log(details)
+        const response = await fetch('http://localhost:5000/devarticles/users', {
+            method: 'POST',
             headers: {
-             'x-rapidapi-key': '979d05050emshf7dd085f9e872dbp1d41b3jsn130311b62321',
-             'x-rapidapi-host': 'free-news.p.rapidapi.com'  
-            }
-        };
- 
-        const response = await axios.request(options);
-        const data = response.data;
-        const articles = data.articles;
-        console.log(articles);
-        return articles; 
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(details)
+        });
+
+        console.log(response);
     }
 );
 

@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "devArticles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Douglas-damler/dev-articles-app.git"
+  },
+  "author": "Douglas Kathurima",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Douglas-damler/dev-articles-app/issues"
+  },
+  "homepage": "https://github.com/Douglas-damler/dev-articles-app#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "pg": "^8.7.1"
+  }
+}

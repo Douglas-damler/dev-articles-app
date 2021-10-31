@@ -54,10 +54,13 @@ export const SignUp = () => {
             setPasswordError('You cannot use your name as passoword');
             return;
         }
-
+        const fullnames = name.split(' ');
+        const firstname = fullnames[0];
+        const secondname = fullnames[1];
         dispatch(register({
-            fullName: name,
-            emailAddress: email,
+            firstname: firstname,
+            secondname: secondname,
+            email: email,
             password: password
         }));
 
