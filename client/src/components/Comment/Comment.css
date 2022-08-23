@@ -1,0 +1,79 @@
+.comment-container {
+    margin: 0 0 4px 0px;
+}
+.comment-container img {
+    height: 30px;
+    margin-right: 8px;
+    border-radius: 50%;
+}
+
+.comment {
+    padding: 5px 15px 15px 15px;
+    border: solid 1px rgb(202, 195, 195);
+    border-radius: 8px;
+    position: relative;
+    top: -40px;
+    left: 40px;
+    width: auto;
+    width: 85%;
+
+}
+
+.comment h4 {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.timeago {
+    margin: 0 10px 0 10px;
+    color: grey;
+}
+
+.timeago b {
+    font-weight: 800;
+    color: rgb(94, 88, 88);
+}
+
+
+.comment p {
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.comment span {
+    font-size: 12px;
+}
+
+.comment-reply {
+    margin: 0px 0px 20px 10px;
+    display: inline-flex;
+    position: relative;
+    top: -30px;
+}
+
+.comment-reply div {
+    margin-right: 20px;
+}
+
+.comment-reply div span {
+    font-size: 12px;
+}
+
+.like:hover {
+    cursor: pointer;
+}
+
+.reply:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+
+
+
+@media screen and (max-width: 720px) {
+    .comment {
+        width: 80%;
+    }
+}
