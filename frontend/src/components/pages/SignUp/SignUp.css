@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Cabin&family=Roboto:wght@100&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+.sign-up {
+    background-color: #030c20;
+    height: 200px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+.sign-up h3 {
+    color: white;
+    position: relative;
+    top: 55%;
+    margin: 0 auto;
+}
+
+.sign-up span {
+    color: rgb(12, 208, 243);
+    margin-left: 9px;
+}
+
+.sign-up-form {
+    width: 30%;
+    margin: 0 auto;
+    background-color: white;
+    border: none;
+    height: auto;
+    margin-top: -40px;
+    margin-bottom: 60px;
+    border-radius: 1px;
+}
+
+.card-container {
+    height: 100px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+    transition: 0.3s;
+}
+
+.card-container:hover {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.card-container label {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.card-container input {
+    margin-top: 20px;
+    margin-bottom: 4px;
+    padding: 20px 10px 5px 10px;
+    border: none;
+    border-bottom: 1px solid rgb(10, 134, 184);
+    font-size: 15px;
+    width: 80%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-container input:focus {
+    outline: none;
+}
+
+.submit-button {
+    background-color: rgb(6, 111, 180);
+    padding: 5px 10px 10px 10px;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    position: relative;
+    font-size: 15px;
+    width: 150px;
+    top: 20px;
+    text-align: center;
+}
+
+.submit-button:hover {
+    background-color: rgb(9, 138, 224);
+    cursor: pointer;
+}
+.submit-button:disabled {
+    cursor:not-allowed;
+}
+.registration-failed {
+    color: red;
+    width: 30%;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+.signup-page-arts-left {
+    position: fixed;
+    top: 260px;
+    left: 8%;
+}
+
+.signup-page-arts-left span {
+    color: green;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+
+.signup-page-arts-right p, .signup-page-arts-left p {
+    font-weight: bold;
+    color: rgb(48, 44, 44);
+}
+
+.signup-page-arts-right span {
+    color: green;
+    font-weight: bold;
+}
+
+.signup-page-arts-right {
+    position: fixed;
+    top: 240px;
+    left: 70%;
+}
+
+.left-image-container, .right-image-container {
+    width: 100%;
+}
+
+.left-image-container img, .right-image-container img {
+    height: 180px;
+}
+
+
+
+@media only screen and (max-width:720px) {
+    .sign-up-form {
+        width: 70%;
+    }
+    .registration-failed {
+        width: 70%;
+    }
+
+    .signup-page-arts-left, .signup-page-arts-right {
+        display: none;
+    }
+}
+
+
+/* ///////////////////////////////////////////// */
+.loading-registration {
+    margin-top: 10px;
+    border: 2px solid #dad5d5;
+    border-top: 2px solid #3498db;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    animation: spin 0.5s linear infinite;
+    position: absolute;
+    bottom: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}
+
+
