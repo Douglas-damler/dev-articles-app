@@ -33,16 +33,16 @@ export const Footer = () => {
                             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                                 <h6 className="text-uppercase mb-4 font-weight-bold">Technologies</h6>
                                 <p>
-                                    <a className="text-white">React.Js</a>
+                                    <a href="/react" className="text-white">React.Js</a>
                                 </p>
                                 <p>
-                                    <a className="text-white">Node.Js</a>
+                                    <a href="/node" className="text-white">Node.Js</a>
                                 </p>
                                 <p>
-                                    <a className="text-white">Express</a>
+                                    <a href="/express" className="text-white">Express</a>
                                 </p>
                                 <p>
-                                    <a className="text-white">Laravel</a>
+                                    <a href="/laravel" className="text-white">Laravel</a>
                                 </p>
                             </div>
 
@@ -55,16 +55,16 @@ export const Footer = () => {
                                     Useful links
                                 </h6>
                                 <p>
-                                    <a className="text-white">Your Account</a>
+                                    <a href="/youccount" className="text-white">Your Account</a>
                                 </p>
                                 <p>
-                                    <a className="text-white">Write an Article</a>
+                                    <a href="#article" className="text-white">Write an Article</a>
                                 </p>
                                 <p>
-                                    <a className="text-white">Donate</a>
+                                    <a href="#donate" className="text-white">Donate</a>
                                 </p>
                                 <p>
-                                    <a className="text-white">Help</a>
+                                    <a href="#help" className="text-white">Help</a>
                                 </p>
                             </div>
 
@@ -100,12 +100,14 @@ export const Footer = () => {
                                 <a
                                     className="btn btn-outline-light btn-floating m-1 text-white"
                                     role="button"
+                                    href="#"
                                 ><FontAwesomeIcon icon={faGoogle}/>
                                 </a>
 
                                 <a
                                     className="btn btn-outline-light btn-floating m-1 text-white"
                                     role="button"
+                                    href="#"
                                 ><FontAwesomeIcon icon={faTwitter} />
                                 </a>
 
@@ -113,6 +115,7 @@ export const Footer = () => {
                                 <a
                                     className="btn btn-outline-light btn-floating m-1 text-white"
                                     role="button"
+                                    href="#"
                                 ><FontAwesomeIcon icon={faInstagram}/>
                                 </a>
 
@@ -120,6 +123,7 @@ export const Footer = () => {
                                 <a
                                     className="btn btn-outline-light  m-1 text-white"
                                     role="button"
+                                    href="#"
                                 ><FontAwesomeIcon icon={faFacebook} />
                                 </a>
                             </div>

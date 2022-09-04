@@ -43,7 +43,25 @@ describe('routes : index', () => {
         res.body.message.should.eql('Not Found');
         done();
       });
-    });
+    })
+
+    it ('should not login an unregistered user', (done) => {
+      chai.request(server)
+      .post('/auth/login')
+      .send({
+        username: 'michael',
+        password: 'johnson123'
+      })
+      .end((err, res) => {
+        should.exist(err);
+        res.redirects.length.should.eql(404);
+        res.type.should.eql('application/json');
+        res.body.status.should.eql('User not found');
+        done();
+      })
+    })
   });
 
 });
+
+

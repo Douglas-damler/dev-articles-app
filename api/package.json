@@ -1,0 +1,30 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "dev articles application",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "nodemon ./src/server/server",
+    "test": "/node_modules/mocha/bin/_mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Douglas-damler/dev-articles-app.git"
+  },
+  "author": "Douglas Kathurima",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Douglas-damler/dev-articles-app/issues"
+  },
+  "homepage": "https://github.com/Douglas-damler/dev-articles-app#readme",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-generator": "^4.16.1",
+    "mocha": "^10.0.0"
+  }
+}

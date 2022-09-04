@@ -1,6 +1,5 @@
 const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../api/.env') })
-const databaseName = 'devarticles';
+require('dotenv').config({ path: path.resolve(__dirname, '../api/.env') });
 
 module.exports = {
   development: {
@@ -10,7 +9,7 @@ module.exports = {
       port: 5432,
       user: process.env.PGUSER,
       password: process.env.PGPASSWORD,
-      database: databaseName
+      database: process.env.DATABASENAME
     },
     migrations: {
       directory: __dirname + '/src/server/db/migrations'
@@ -21,7 +20,7 @@ module.exports = {
   },
   test: {
     client: 'postgresql',
-    connection: `postgres://localhost:5432/${databaseName}_test`,
+    connection: `postgres://localhost:5432/${process.env.DATABASENAME}_test`,
     migrations: {
       directory: __dirname + '/src/server/db/migrations'
     },

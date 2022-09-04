@@ -3,26 +3,32 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const login = createAsyncThunk(
     'userSession/login',
 
-    async(details) => {
-        //const { email, password} = details;
-        return ''
-    }
-);
-
-export const register = createAsyncThunk(
-    'userSession/register',
-
-    async(details) => {
-        console.log(details)
-        const response = await fetch('http://localhost:5000/devarticles/users', {
+    async (details) => {
+        const response = await fetch('http://localhost:4001/auth/login', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(details)
         });
+        console.log(response)
+        return response.status
+    }
+);
 
-        console.log(response);
+export const register = createAsyncThunk(
+    'userSession/register',
+
+    async (details) => {
+        const response = await fetch('http://localhost:4001/auth/register', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(details)
+        });
+        console.log(response)
+        return response.status
     }
 );
 
@@ -33,18 +39,18 @@ export const addUserFollowing = createAsyncThunk(
         var options = {
             method: 'GET',
             url: 'https://free-news.p.rapidapi.com/v1/search',
-            params: {q: 'Elon Musk', lang: 'en'},
+            params: { q: 'Elon Musk', lang: 'en' },
             headers: {
-             'x-rapidapi-key': '979d05050emshf7dd085f9e872dbp1d41b3jsn130311b62321',
-             'x-rapidapi-host': 'free-news.p.rapidapi.com'  
+                'x-rapidapi-key': '979d05050emshf7dd085f9e872dbp1d41b3jsn130311b62321',
+                'x-rapidapi-host': 'free-news.p.rapidapi.com'
             }
         };
- 
+
         const response = await axios.request(options);
         const data = response.data;
         const articles = data.articles;
         console.log(articles);
-        return ''; 
+        return '';
     }
 )
 
@@ -59,6 +65,7 @@ const userSessionSlice = createSlice({
         isRegistering: false,
         registrationSucess: false,
         hasFailedToRegister: false,
+        registrationErrorMessage: '',
         userFollowingIsSuccessful: false
     },
 
@@ -79,7 +86,7 @@ const userSessionSlice = createSlice({
                 state.userDoesNoExist = true;
                 state.isLoggined = false;
             }
-            if(action.payload.length) {
+            if (action.payload.length) {
                 state.isLoggined = true;
                 state.userDoesNoExist = false;
                 state.userDetails.push(action.payload);
@@ -100,9 +107,16 @@ const userSessionSlice = createSlice({
         },
 
         [register.fulfilled]: (state, action) => {
-            state.isRegistering = false;
-            state.hasFailedToRegister = false;
-            state.registrationSucess = true;
+            state.isRegistering = false
+            state.hasFailedToRegister = false
+            console.log(action.payload);
+            if (action.payload === 200) {
+                state.registrationSucess = true;
+            }
+            if (action.payload == 400) {
+                state.registrationSucess = false;
+                state.registrationErrorMessage = 'A user with that email or username already exists'
+            }
         },
 
         [register.rejected]: (state, action) => {

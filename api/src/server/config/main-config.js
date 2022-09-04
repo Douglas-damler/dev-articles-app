@@ -9,6 +9,7 @@
   const session = require('express-session');
   const flash = require('connect-flash');
   const morgan = require('morgan');
+  const cors = require('cors');
   const nunjucks = require('nunjucks');
   const store = session.MemoryStore();
 
@@ -36,6 +37,10 @@
     }
     app.use(cookieParser());
     app.use(express.json());
+    app.use(cors({
+      origin: "http://localhost:3000",
+      credentials: true
+    }))
     app.use(bodyParser.urlencoded({ extended: true }));
     // // uncomment if using express-session
     app.use(session({

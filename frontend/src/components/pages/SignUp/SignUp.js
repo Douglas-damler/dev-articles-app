@@ -14,14 +14,17 @@ export const SignUp = () => {
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [username, setUsername] = useState('');
+    const [usernameError, setUsernameError] = useState('');
     const [nameError, setNameError] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
     const isLoadingRegister = useSelector((state) => state.userSession.isRegistering);
     const hasFailedToRegister = useSelector((state) => state.userSession.hasFailedToRegister);
     const registrationSucess = useSelector((state) => state.userSession.registrationSucess);
+    const registrationError = useSelector((state) => state.userSession.registrationErrorMessage);
 
-   
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -54,86 +57,114 @@ export const SignUp = () => {
             setPasswordError('You cannot use your name as passoword');
             return;
         }
-        const fullnames = name.split(' ');
-        const firstname = fullnames[0];
-        const secondname = fullnames[1];
+
+        if (username.length < 6) {
+            setUsernameError('Username should be 6 characters or longer');
+            return;
+        }
+
+        if (username.toLocaleLowerCase() == password.toLocaleLowerCase()) {
+            setUsernameError('You cannot user your username as password');
+            return;
+        }
+
         dispatch(register({
-            firstname: firstname,
-            secondname: secondname,
+            full_name: name,
+            username: username,
             email: email,
             password: password
         }));
 
+
     }
 
-    if(registrationSucess) {
+    // if (registrationError.length) {
+    //     setUsernameError(registrationError);
+    // }
+
+    if (registrationSucess) {
         history.push('/');
     }
 
     return (
         <>
-        <div className="sign-up">
-            <h3>devArticles |<span>SignUp</span></h3>
-        </div>
+            <div className="sign-up">
+                <h3>devArticles |<span>SignUp</span></h3>
+            </div>
             <form className="sign-up-form" onSubmit={handleSubmit}>
 
                 <div className="card-container">
-                    <label for="name">Your full name</label>
+                    <label htmlFor="name">Your full name</label>
                     <br />
-                    <input 
+                    <input
                         placeholder="Your name"
                         type="text"
                         required="required"
                         minLength="6"
                         maxLength="30"
                         value={name}
-                        onChange={(e) => {setName(e.target.value); setNameError('')}}
+                        onChange={(e) => { setName(e.target.value); setNameError('') }}
                     />
                     <p className="error">{nameError}</p>
                 </div>
 
                 <div className="card-container">
+                    <label htmlFor="name">Your Username</label>
+                    <br />
+                    <input
+                        placeholder="Your username"
+                        type="text"
+                        required="required"
+                        minLength="6"
+                        maxLength="30"
+                        value={username}
+                        onChange={(e) => { setUsername(e.target.value); setUsernameError('') }}
+                    />
+                    <p className="error">{usernameError}</p>
+                </div>
+
+                <div className="card-container">
                     <label htmlFor="email">Your email address</label>
                     <br />
-                    <input 
+                    <input
                         placeholder="Your email address"
                         type="email"
                         required="required"
                         value={email}
-                        onChange={(e) => {setEmail(e.target.value)}}
+                        onChange={(e) => { setEmail(e.target.value) }}
                     />
                 </div>
 
                 <div className="card-container">
-                   <label htmlFor="password"> Your password</label>
-                   <br />
-                   <input 
+                    <label htmlFor="password"> Your password</label>
+                    <br />
+                    <input
                         placeholder="Password"
                         minLength="8"
                         maxLength="10"
                         type="password"
                         required="required"
                         value={password}
-                        onChange={(e) => {setPassword(e.target.value)}}
-                   /> 
+                        onChange={(e) => { setPassword(e.target.value) }}
+                    />
                 </div>
 
                 <div className="card-container">
                     <label htmlFor="confirm password">Confirm password</label>
                     <br />
-                    <input 
+                    <input
                         placeholder="Repeat password"
                         type="password"
                         required="required"
                         value={confirmPassword}
-                        onChange={(e) => {setConfirmPassword(e.target.value); setPasswordError('')}}
+                        onChange={(e) => { setConfirmPassword(e.target.value); setPasswordError('') }}
                     />
                     <p className="error">{passwordError}</p>
                 </div>
 
                 <div>
                     <button type="submit" className="submit-button" disabled={isLoadingRegister}>
-                        { isLoadingRegister === false ? 'Save & Continue': (<><div className="loading-registration"></div> Processing </>)}
+                        {isLoadingRegister === false ? 'Save & Continue' : (<><div className="loading-registration"></div> Processing </>)}
                     </button>
                 </div>
 
@@ -143,11 +174,11 @@ export const SignUp = () => {
 
             </form>
 
-            { hasFailedToRegister === true ? (<h4 className="registration-failed">Registration failed! Check your Internet connection and try again</h4>): (<></>)}
+            {hasFailedToRegister === true ? (<h4 className="registration-failed">Registration failed! Check your Internet connection and try again</h4>) : (<></>)}
 
             <div className="signup-page-arts-left">
                 <div className="left-image-container">
-                    <img src={cartoonwriting} alt="sign-up page arts"/>
+                    <img src={cartoonwriting} alt="sign-up page arts" />
                     <p>Sign Up for <span>free</span> today</p>
                 </div>
             </div>

@@ -17,7 +17,6 @@ export const loadAllArticles = createAsyncThunk(
        const response = await axios.request(options);
        const data = response.data;
        const articles = data.articles;
-       console.log(articles);
        return articles; 
     }
 );

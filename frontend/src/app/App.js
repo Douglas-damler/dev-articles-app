@@ -48,7 +48,7 @@ const App = () => {
         <SignUp />
       </Route>
 
-      <Route path="sign-in">
+      <Route path="/sign-in">
         <SignIn />
       </Route>
 

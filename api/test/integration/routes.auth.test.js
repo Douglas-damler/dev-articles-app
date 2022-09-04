@@ -11,7 +11,8 @@ const knex = require('../../src/server/db/connection');
 describe('routes: auth', () => {
     beforeEach(() => {
         return knex.migrate.rollback()
-        .then(() => {return knex.migrate.latest();});
+            .then(() => { return knex.migrate.latest(); })
+            .then(() => { return knex.seed.run(); });
     });
 
     afterEach(() => {
@@ -22,37 +23,37 @@ describe('routes: auth', () => {
 describe('POST /auth/register', () => {
     it('should register a new user', (done) => {
         chai.request(server)
-        .post('/auth/register')
-        .send({
-            username: 'michael',
-            password: 'herman'
-        })
-        .end((err, res) => {
-            should.not.exist(err);
-            res.redirects.length.should.eql(0);
-            res.status.should.eql(200);
-            res.type.should.eql('application/json');
-            res.body.status.should.eql('success');
-            done();
-        });
+            .post('/auth/register')
+            .send({
+                username: 'michael',
+                password: 'herman'
+            })
+            .end((err, res) => {
+                should.not.exist(err);
+                res.redirects.length.should.eql(0);
+                res.status.should.eql(200);
+                res.type.should.eql('application/json');
+                res.body.status.should.eql('success');
+                done();
+            });
     });
 });
 
 describe('POST /auth/login', () => {
     it('should login a user', (done) => {
         chai.request(server)
-        .post('/auth/login')
-        .send({
-            username: 'damler',
-            password: 'nyambura'
-        })
-        .end((err, res) => {
-            should.not.exist(err);
-            res.redirects.length.should.eql(0);
-            res.status.should.eql(200);
-            res.type.should.eql('application/json');
-            res.body.status.eql('success');
-            done();
-        })
+            .post('/auth/login')
+            .send({
+                username: 'douglas',
+                password: 'abijachari'
+            })
+            .end((err, res) => {
+                should.not.exist(err);
+                res.redirects.length.should.eql(0);
+                res.status.should.eql(200);
+                res.type.should.eql('application/json');
+                res.body.status.eql('success');
+                done();
+            })
     })
 })
