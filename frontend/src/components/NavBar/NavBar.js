@@ -21,7 +21,7 @@ export const NavBar = () => {
      const searchTerm = useSelector((state) => state.searchTerm)
      return (
           <div>
-               <nav className="navbar navbar-expand-lg navbar-light bg-light">
+               <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
                     <div className="container-fluid">
                          <a href="#" className="navbar-brand">Brand</a>
                          <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">

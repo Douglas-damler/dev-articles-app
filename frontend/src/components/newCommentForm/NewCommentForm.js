@@ -24,6 +24,7 @@ export const NewCommentForm = () => {
             className="comment-input"
             cols="50" 
             rows="2"
+            minLength="5"
             value={comment}
             type="text"
             placeholder="Write your comment here..."

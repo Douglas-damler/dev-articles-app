@@ -92,20 +92,20 @@
 
 .author-information-container .name {
     text-align: center;
-    margin: 5px 10px 10px 15px;
+    margin: 2px 12px 10px 25px;
 }
 
-.author-information-container button {
+.author-information-container .follow-button {
     padding: 6px 8px 8px 8px;
     width: 100%;
-    margin: 20px 0px 10px 0px;
+    margin: 10px 0px 10px 0px;
     background-color: rgb(15, 124, 197);
     border: none;
     border-radius: 2px;
     color: white;
 }
 
-.author-information-container button:hover {
+.author-information-container .follow-button:hover {
     background-color: blue;
     cursor: pointer;
 }

@@ -40,75 +40,79 @@ export const ArticleInformation = () => {
 
     return (
         <div className="main">
-        <div className="article-information">
-            {
-                article ? (
-                    <div>
-                        <h3 className="title">{article.title}</h3>
-                        <p className="dates">{article.published_date}</p>
-                        <p className="author">{article.author || 'DevArticles'}</p>
-                        <div className="article-image">
-                            <img src={article.media} alt="" />
+            <div className="article-information">
+                {
+                    article ? (
+                        <div>
+                            <h3 className="title">{article.title}</h3>
+                            <p className="dates">{article.published_date}</p>
+                            <p className="author">{article.author || 'DevArticles'}</p>
+                            <div className="article-image">
+                                <img src={article.media} alt="" />
+                            </div>
+
+                            <div className="article-text-container">
+                                <p className="article-text">
+                                    {article.summary}
+                                </p>
+                            </div>
+
+                            <h3 className="comments-header">Comments <span>{totalComments === 0 ? ('') : (totalComments)}</span></h3>
+                            <NewCommentForm />
+                            <AllComments id={id} />
                         </div>
 
-                        <div className="article-text-container">
-                            <p className="article-text">
-                                {article.summary}
-                            </p>
-                        </div>
+                    ) : (
+                        <h3>Ooh No. We're lost buddy! Aticle not found.</h3>
+                    )
+                }
 
-                        <h3 className="comments-header">Comments <span>{totalComments === 0 ? (''): (totalComments)}</span></h3>
-                        <NewCommentForm />
-                        <AllComments id={id} />
-                    </div>
-                
-                ): (
-                  <h3>Ooh No. We're lost buddy! Aticle not found.</h3>  
-                )
-            }
-            
-        </div>
-        {article ? (
-            <div className="author-information-container">
-                <div className="author-information">
-                    <img src={profile} alt=""/>
-                    <h5 className="name">{article.author}</h5>
-                    <button onClick={handleFollowButtonClick}>
-                        {addFollowingIsSuccessful ? 'Following': 'Follow'}
-                        </button>
-                    <p className="more-information">
-                        My name is Douglas Kathurima a software engineer at the University of Eastern Africa, Baraton
-                    </p>
-
-                    <h5>Location</h5>
-                    <p>Meru, Kenya</p>
-                    <h5>Education</h5>
-                    <p>University of Eastern Africa</p>
-                    <h5>Work</h5>
-                    <p>Software Engineer</p>
-                    <h5>Joined</h5>
-                    <p>12 August 2020</p>
-                </div>
-         </div>
-        ): ('')}
-
-        {article ? (
-            <div className="arts-container">
-                <ul className="arts">
-                    <div><FontAwesomeIcon size="2x" icon={faHeart} color="red" /></div>
-                    <div><FontAwesomeIcon size="2x" icon={faComment} color="blue"/></div>
-                    <div><FontAwesomeIcon size="2x" icon={faMailchimp}/></div>
-                    <div><FontAwesomeIcon size="2x" icon={faReact}/></div>
-                    <div><FontAwesomeIcon size="2x" icon={faJs} /></div>
-                    <div><FontAwesomeIcon size="2x" icon={faPython}/></div>
-                    <div><FontAwesomeIcon size="2x" icon={faJava}/></div>
-                    <div><FontAwesomeIcon size="2x" icon={faPhp}/></div>
-                    
-                </ul>
             </div>
-        ): ('')}
+            {article ? (
+                <div className="author-information-container">
+                    <div className="author-information">
+                        <img src={profile} alt="" />
+                        <h5 className="name">{article.author}</h5>
+                        <button className="follow-button" onClick={handleFollowButtonClick}>
+                            {addFollowingIsSuccessful ? 'Following' : 'Follow'}
+                        </button>
+                        <p className="more-information">
+                            My name is Douglas Kathurima a software engineer at the University of Eastern Africa, Baraton
+                        </p>
+
+                        <h5>Location</h5>
+                        <p>Meru, Kenya</p>
+                        <h5>Work</h5>
+                        <p>Software Engineer</p>
+                        <h5>Joined</h5>
+                        <p>12 August 2020</p>
+
+                        <div>
+                            <button className="btn btn-success">Donate <FontAwesomeIcon size="1x" icon={faHeart} color="white" /></button>
+                        </div>
+                    </div>
+
+
+                </div>
+            ) : ('')}
+
+            {article ? (
+                <div className="arts-container">
+                    <ul className="arts">
+                        <div><FontAwesomeIcon size="2x" icon={faHeart} color="red" /></div>
+                        <div><FontAwesomeIcon size="2x" icon={faComment} color="blue" /></div>
+                        <div><FontAwesomeIcon size="2x" icon={faMailchimp} /></div>
+                        <div><FontAwesomeIcon size="2x" icon={faReact} /></div>
+                        <div><FontAwesomeIcon size="2x" icon={faJs} /></div>
+                        <div><FontAwesomeIcon size="2x" icon={faPython} /></div>
+                        <div><FontAwesomeIcon size="2x" icon={faJava} /></div>
+                        <div><FontAwesomeIcon size="2x" icon={faPhp} /></div>
+
+                    </ul>
+                </div>
+            ) : ('')}
         </div>
 
-        
+
     )
 }
